@@ -4,6 +4,10 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import { Code2, Brain, Terminal, Smartphone, Gamepad, Users } from "lucide-react";
+import { ShieldAlert } from 'lucide-react';
+import { Cloud } from 'lucide-react';
+import { Figma } from 'lucide-react';
+
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState<{
@@ -91,13 +95,26 @@ export default function Home() {
       title: "Competitive Programming",
     },
     {
-      icon: <Smartphone className="w-8 h-8 text-orange-400" />,
+      icon: <Smartphone className="w-8 h-8 text-orange-600" />,
       title: "App Development",
     },
     {
       icon: <Gamepad className="w-8 h-8 text-pink-400" />,
       title: "Game Development",
     },
+    {
+      icon: <ShieldAlert className="w-8 h-8 text-red-600" />,
+      title: "Cybersecurity",
+    },
+    {
+      icon: <Cloud className="w-8 h-8 text-blue-300" />,
+      title: "Cloud Computing",
+    },
+    {
+      icon: <Figma className="w-8 h-8 text-orange-400" />,
+      title: "UI/UX",
+    },
+
     {
       icon: <Users className="w-8 h-8 text-yellow-400" />,
       title: "Outreach",
