@@ -3,11 +3,17 @@ import { useEffect, useState } from "react";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
-import { Code2, Brain, Terminal, Smartphone, Gamepad, Users } from "lucide-react";
-import { ShieldAlert } from 'lucide-react';
-import { Cloud } from 'lucide-react';
-import { Figma } from 'lucide-react';
-
+import {
+  Code2,
+  Brain,
+  Terminal,
+  Smartphone,
+  Gamepad,
+  Users,
+} from "lucide-react";
+import { ShieldAlert } from "lucide-react";
+import { Cloud } from "lucide-react";
+import { Figma } from "lucide-react";
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState<{
@@ -18,7 +24,7 @@ export default function Home() {
   } | null>(null);
 
   const [status, setStatus] = useState<"before" | "live" | "ended">("before");
- 
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [floatingObjects, setFloatingObjects] = useState<any[]>([]);
 
@@ -34,7 +40,9 @@ export default function Home() {
         const distance = startDate - now;
         setTimeLeft({
           days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          hours: Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          ),
           minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((distance % (1000 * 60)) / 1000),
         });
@@ -43,7 +51,9 @@ export default function Home() {
         const distance = endDate - now;
         setTimeLeft({
           days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          hours: Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          ),
           minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((distance % (1000 * 60)) / 1000),
         });
@@ -59,14 +69,37 @@ export default function Home() {
 
   useEffect(() => {
     const randomObjects = [
-      "C++", "#include", "Algorithm", "Syntax", "Compiler", "Debug",
-      "IDE", "Variable", "Function", "Loop", "Array", "Class",
-      "Object", "Module", "API", "Data", "Code", "Git"
+      "C++",
+      "#include",
+      "Algorithm",
+      "Syntax",
+      "Compiler",
+      "Debug",
+      "IDE",
+      "Variable",
+      "Function",
+      "Loop",
+      "Array",
+      "Class",
+      "Object",
+      "Module",
+      "API",
+      "Data",
+      "Code",
+      "Git",
     ];
 
     const colors = [
-      "#4CAF50", "#2196F3", "#9c27b0", "#00bcd4", "#8bc34a",
-      "#3f51b5", "#009688", "#ff5722", "#795548", "#607d8b"
+      "#4CAF50",
+      "#2196F3",
+      "#9c27b0",
+      "#00bcd4",
+      "#8bc34a",
+      "#3f51b5",
+      "#009688",
+      "#ff5722",
+      "#795548",
+      "#607d8b",
     ];
 
     const objectsWithStyles = randomObjects.map((text) => ({
@@ -118,7 +151,7 @@ export default function Home() {
     {
       icon: <Users className="w-8 h-8 text-yellow-400" />,
       title: "Outreach",
-    }
+    },
   ];
 
   return (
@@ -189,28 +222,33 @@ export default function Home() {
           </div>
         )}
 
+        <div className="z-10 mb-10">
+          <Link
+            href={status === "live" ? "/register" : "/"}
+            onClick={(e) => status !== "live" && e.preventDefault()}
+            className={`register-button px-12 py-4 text-lg font-bold rounded-full transition-all duration-300 ${
+              status === "live"
+                ? "px-8 py-3 bg-green-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex mx-auto items-center"
+                : "bg-gray-700 text-gray-400 cursor-not-allowed opacity-50"
+            }`}
+          >
+            Register Now
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 w-full">
           {features.map((feature, index) => (
-            <div key={index} className="feature-card rounded-xl p-6 text-center">
+            <div
+              key={index}
+              className="feature-card rounded-xl p-6 text-center"
+            >
               <div className="mb-4 flex justify-center">{feature.icon}</div>
-              <h3 className="text-white text-lg font-semibold mb-2">{feature.title}</h3>
+              <h3 className="text-white text-lg font-semibold mb-2">
+                {feature.title}
+              </h3>
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="z-10">
-        <Link
-          href={status === "live" ? "/register" : "/"}
-          onClick={(e) => status !== "live" && e.preventDefault()}
-          className={`register-button px-12 py-4 text-lg font-bold rounded-full transition-all duration-300 ${
-            status === "live"
-              ? "bg-gradient-to-r from-green-500 to-green-600 text-white hover:shadow-[0_0_20px_rgba(50,202,67,0.5)] transform hover:-translate-y-1"
-              : "bg-gray-700 text-gray-400 cursor-not-allowed opacity-50"
-          }`}
-        >
-          Register Now
-        </Link>
       </div>
     </div>
   );
