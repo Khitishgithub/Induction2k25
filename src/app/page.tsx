@@ -155,7 +155,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col bg-gradient-to-b from-black via-[#1a1a1a] to-[#32CA43] min-h-screen items-center justify-between py-12 relative overflow-hidden">
+    <div className="flex flex-col bg-gradient-to-b from-black via-[#1a1a1a] to-[#227a2b] min-h-screen items-center justify-between py-12 relative overflow-hidden">
       {}
       <div className="absolute inset-0 overflow-hidden">
         {floatingObjects.map((obj, index) => (
