@@ -65,7 +65,10 @@ const DOMAINS = [
 
 // Form schema
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  name: z.string()
+  .min(2, { message: "Name must be at least 2 characters." })
+  .regex(/^[a-zA-Z\s]*$/, { message: "Name must contain only letters." })
+,
   gender: z.string().nonempty({ message: "Please select your gender." }),
   email: z.string().email({ message: "Invalid email address." }),
   registrationNumber: z.string().regex(/^\d{10}$/, { message: "Registration number must be 10 digits." }),
