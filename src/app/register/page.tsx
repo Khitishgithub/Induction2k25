@@ -202,7 +202,7 @@ export default function RegistrationForm() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-auto bg-gradient-to-r from-black to-[#32ca44] relative overflow-x-hidden">
+    <div className="flex flex-col items-center justify-center h-auto bg-gradient-to-r from-black to-[#0d5e16] relative overflow-x-hidden">
       <ToastContainer
         position="top-right"
         autoClose={5000}
