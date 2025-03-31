@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     const startDate = new Date(Date.UTC(2025, 2, 27, 17, 30, 0)).getTime();
-    const endDate = new Date(Date.UTC(2025, 2, 31, 13, 0, 0)).getTime();
+    const endDate = new Date(Date.UTC(2025, 2, 31, 15, 30, 0)).getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
